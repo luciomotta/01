@@ -117,5 +117,5 @@
 
 <i  class="fas fa-sync-alt"></i>
 <?php
-    include_once("Templates/fooater.php")
+    include_once("Templates/footer.php")
 ?>

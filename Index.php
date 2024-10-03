@@ -59,5 +59,5 @@
     </div>
 
 <?php
-    include_once("Templates/fooater.php");
+    include_once("Templates/footer.php");
 ?>

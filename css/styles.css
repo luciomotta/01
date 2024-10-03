@@ -31,6 +31,7 @@ nav.navbar.navbar-expand-lg {
     display: flex;
     align-items: center;
     justify-content: center;
+
 }
 
 .main-banner h1 {
@@ -48,6 +49,7 @@ div#main-container {
     padding:  50px 0;
     text-align: center;
     min-height: 50%;
+    height: 62.9vh;
 }
 
 
@@ -91,6 +93,39 @@ div#main-container {
     border: 2px solid #856404
 }
 
+/* DASHBOARD */
+
+.delete-btn, .update-btn {
+    border: none;
+    background-color: transparent;
+}
+
+.delete-btn {
+    padding-top: 10px;
+}
+
+.delete-btn i {
+    color: #721c24;
+    font-size: 20px;
+}
+
+.update-btn i {
+    color: #004085;
+    font-size: 20px;
+}
+
+.update-form {
+    display: flex;
+    flex-direction:  row;
+}
+
+.status-input {
+    width: 65%;
+}
+
+.table ul {
+    text-align:  left;
+}
 /* Footer */
 
 footer {
