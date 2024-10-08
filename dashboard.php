@@ -1,6 +1,8 @@
 
 <?php
-    include_once("Templates/header.php")
+    include_once("Templates/header.php");
+    include_once("Process/orders.php");
+
 ?>
     <div id="main-container">
         <div class="container">
@@ -21,36 +23,47 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>#1</td>
-                                <td>Cheddar</td>
-                                <td>Calabresa</td>
-                                <td>4 Queijos</td>
+                            <?php foreach($pizzas as $pizza):?>
+                                <tr>
+                                    <td><?= $pizza["id"]?></td>
+                                    <td><?= $pizza["borda"]?></td>
+                                    <td><?= $pizza["massa"]?></td>
+                                    <td>
+                                        <ul>
+                                            <?php foreach($pizza["sabores"] as $sabor): ?>
+                                                <li><?= $sabor ;?></li>
+                                            <?php endforeach;?>
+                                        </ul>
+                                    </td>
+                                    <td>
+                                        <form action="process/order.php" method="post" class="form-group update-form">
+                                            <input type="hidden" name="type" value="update">
+                                            <input type="hidden" name="id" value="<?= $pizza["id"]?>">
+                                            <select name="status" class="form-control status-input">
+                                                <?php foreach($status as $s): ?>
+                                                    <option value="<?= $s["ID"] ?>" <?php echo($s["ID"] == $pizza["status"]) ? "selected" : "" ;?>>
+                                                        <?= $s["tipo"] ?></option>
+                                                <?php endforeach; ?>
+                                            </select>
 
 
-                                <td>
-                                    <form action="process/order.php" method="post" class="form-group update-form">
-                                        <input type="hidden" name="type" value="update">
-                                        <select name="status"class="form-control status-input">
-                                            <option value="1">Em preparo</option>
-                                            <option value="2">Saiu para entrega</option>
-                                            <option value="3">Entregue</option>
-                                        </select>
 
 
-                                        <button type="submit" class="update-btn"> <i class="fas fa-sync-alt"></i> Atualizar</button>
-                                    </form>
-                                </td>
-                                <td>
-                                    <form action="process/order.php" method="POST">
-                                        <input type="hidden" name="type" value="delete">
-                                        <input type="hidden" name="id" value="1">
-                                        <button type="submit" class="delete-btn"> 
-                                            <i class="fas fa-trash"></i> Deletar
-                                        </button>
-                                    </form>
-                                </td>
-                            </tr>
+                                            <button type="submit" class="update-btn"> <i class="fas fa-sync-alt"></i> Atualizar</button>
+                                        </form>
+                                    </td>
+                                    <td>
+                                        <form action="process/order.php" method="POST">
+                                            <input type="hidden" name="type" value="delete">
+                                            <input type="hidden" name="id" value="<?= $pizza["id"] ?>">
+                                            <button type="submit" class="delete-btn"> 
+                                                <i class="fas fa-trash"></i> Deletar
+                                            </button>
+                                        </form>
+                                    </td>
+                                </tr>
+                            <?php endforeach;?>
+
                         </tbody>
                     </table>
                 </div>
