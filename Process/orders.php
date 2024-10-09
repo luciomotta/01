@@ -75,6 +75,51 @@ if ($method == 'GET') {
     $statusQuery = $conn->query("SELECT * FROM status");
     $status = $statusQuery->fetchAll();
 } else if ($method == 'POST') {
-    // Código para o método POST
+    // verificar tipo de POST
+
+    $type = $_POST["type"];
+    
+    //deletar pedido
+    if($type == "delete"){
+        $pizzaId = $_POST["id"];
+
+        $deleteQuery = $conn->prepare("DELETE FROM pedidos WHERE pizza_id = :pizza_id");
+
+        $deleteQuery->bindParam(":pizza_id", $pizzaId, PDO::PARAM_INT);
+
+        $deleteQuery->execute();
+
+        //Inserir mensagem de sessão
+
+        $_SESSION["msg"] = "Pedido deletado com sucesso!";
+        $_SESSION["status"] = "success";
+    //Atualizar status do Pedido
+    }// Atualizar status do Pedido
+    else if ($type == "update") {
+        $pizzaId = $_POST["id"];  
+        $statusId = $_POST["status"];
+
+        // Corrigido para usar pizza_id em vez de ID
+        $updateQuery = $conn->prepare("UPDATE pedidos SET status_id = :status_id WHERE pizza_id = :pizza_id"); 
+
+        $updateQuery->bindParam(":pizza_id", $pizzaId, PDO::PARAM_INT); 
+        $updateQuery->bindParam(":status_id", $statusId, PDO::PARAM_INT);
+
+        try {
+            $updateQuery->execute();
+            $_SESSION["msg"] = "Pedido atualizado com sucesso!";
+            $_SESSION["status"] = "success";
+        } catch (Exception $e) {
+            $_SESSION["message"] = "Erro ao atualizar pedido: " . $e->getMessage();
+            $_SESSION["status"] = "error";
+        }
+    }
+
+    
+
+    //Retornar para a página de Dashboard
+    header("Location: ../dashboard.php");
 }
+    
+
 ?>

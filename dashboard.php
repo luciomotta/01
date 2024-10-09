@@ -30,30 +30,29 @@
                                     <td><?= $pizza["massa"]?></td>
                                     <td>
                                         <ul>
+                                            <?php 
+                                                // Debug: Verifique o conteúdo dos sabores
+                                                var_dump($pizza["sabores"]); 
+                                                ?>
                                             <?php foreach($pizza["sabores"] as $sabor): ?>
                                                 <li><?= $sabor ;?></li>
                                             <?php endforeach;?>
                                         </ul>
                                     </td>
                                     <td>
-                                        <form action="process/order.php" method="post" class="form-group update-form">
+                                        <form action="process/orders.php" method="post" class="form-group update-form">
                                             <input type="hidden" name="type" value="update">
                                             <input type="hidden" name="id" value="<?= $pizza["id"]?>">
                                             <select name="status" class="form-control status-input">
                                                 <?php foreach($status as $s): ?>
-                                                    <option value="<?= $s["ID"] ?>" <?php echo($s["ID"] == $pizza["status"]) ? "selected" : "" ;?>>
-                                                        <?= $s["tipo"] ?></option>
+                                                    <option value="<?= $s["ID"] ?>" <?php echo($s["ID"] == $pizza["status"]) ? "selected" : "";?>><?= $s["tipo"] ?></option>
                                                 <?php endforeach; ?>
                                             </select>
-
-
-
-
                                             <button type="submit" class="update-btn"> <i class="fas fa-sync-alt"></i> Atualizar</button>
                                         </form>
                                     </td>
                                     <td>
-                                        <form action="process/order.php" method="POST">
+                                        <form action="process/orders.php" method="POST">
                                             <input type="hidden" name="type" value="delete">
                                             <input type="hidden" name="id" value="<?= $pizza["id"] ?>">
                                             <button type="submit" class="delete-btn"> 
