@@ -12,7 +12,7 @@ Durante o projeto, aplicamos conceitos avançados de modelagem, incluindo normal
 
 Abaixo, você pode visualizar a estrutura do banco de dados desenvolvido durante o curso. A imagem ilustra as tabelas criadas, suas relações, e como os dados são organizados dentro do sistema.
 
-![Estrutura do Banco de Dados](..\img\image.png)
+![Estrutura do Banco de Dados](..img/image.png)
 ![Vídeo do Site PHP](..\img\Faça_Pedido.mp4)
 ## Conclusão
 
