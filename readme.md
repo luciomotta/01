@@ -12,7 +12,7 @@ Durante o projeto, aplicamos conceitos avançados de modelagem, incluindo normal
 
 Abaixo, você pode visualizar a estrutura do banco de dados desenvolvido durante o curso. A imagem ilustra as tabelas criadas, suas relações, e como os dados são organizados dentro do sistema.
 <img src="img/image.png" alt="Estrutura do Banco de Dados">
-<img src="\img\Faça_Pedido.mp4" alt="**Texto Alternativo**">
+<video src="\img\Faça_Pedido.mp4" alt="Texto Alternativo">
 
 ## Conclusão
 
