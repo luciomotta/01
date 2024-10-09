@@ -11,9 +11,9 @@ Durante o projeto, aplicamos conceitos avançados de modelagem, incluindo normal
 ## Visualização da Modelagem
 
 Abaixo, você pode visualizar a estrutura do banco de dados desenvolvido durante o curso. A imagem ilustra as tabelas criadas, suas relações, e como os dados são organizados dentro do sistema.
+<img src="img/image.png" alt="Estrutura do Banco de Dados">
+<video src="\img\Faça_Pedido.mp4" alt="Texto Alternativo">
 
-![Estrutura do Banco de Dados](..\img\image.png)
-![Vídeo do Site PHP](..\img\Faça_Pedido.mp4)
 ## Conclusão
 
 Através deste projeto, foi possível compreender a importância da modelagem de banco de dados no desenvolvimento de aplicações robustas e eficientes. A habilidade de projetar um banco de dados bem estruturado é fundamental para o sucesso de qualquer sistema de informação, e o curso oferecido por Matheus Battisti na Hora de Codar proporcionou uma base sólida para o desenvolvimento dessas competências.
